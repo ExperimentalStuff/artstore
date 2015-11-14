@@ -1,7 +1,8 @@
+<div class="col-md-6 center">
+	<h2> admin/index.html.erb </h2>
+</div>
 
-<h2> admin/index.html.erb </h2>
-
-<table>
+<table class="table">
 	<thead>
 		<tr>
 			<th>#</th>
@@ -19,6 +20,8 @@
 				<td><%= product.description %></td>
 				<td><%= product.quantity %></td>
 				<td>$ <%= product.price %></td>
+				<td><%= link_to("edit", edit_admin_product_path(product)) %></td>
+				<td><%= link_to("delete", admin_product_path(product), method: :delete, data: {confirm: "Are you sure?"}) %></td>
 			</tr>
 		<% end %>
 	</tbody>

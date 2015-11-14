@@ -1,0 +1,29 @@
+
+<h2> admin/index.html.erb </h2>
+
+<table>
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>title</th>
+			<th>description</th>
+			<th>quantity</th>
+			<th>price</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @products.each do |product| %>
+			<tr>
+				<td><%= product.id %></td>
+				<td><%= link_to(product.title, admin_product_path(product)) %></td>
+				<td><%= product.description %></td>
+				<td><%= product.quantity %></td>
+				<td>$ <%= product.price %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<h3>
+<%= link_to("New item", new_admin_product_path) %>
+</h3>

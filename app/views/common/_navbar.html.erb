@@ -12,7 +12,12 @@
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
+        <li>
+          <%= link_to "#" do %>
+            購物車 <i class="fa fa-shopping-cart"> </i> (0)
+          <% end %>
+          
+        </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi, 
           	<%= current_user.email if current_user %> 
@@ -25,11 +30,12 @@
 							<% else %>
 								<li><%= link_to("登出", destroy_user_session_path, method: :delete) %></li>
 							<% end %>
+
+              <% if current_user.admin? %>
+                <li><%= link_to("Admin選單", admin_products_path) %></li>
+              <% end %>
             <li></li>
             <li></li>
-            <li></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
           </ul>
         </li>
       </ul>

@@ -20,5 +20,11 @@ class ProductsController < ApplicationController
 		redirect_to :back
 	end
 
+	def remove_from_cart
+		@cart_product = CartItem.find_by({product_id: params[:product_id], cart_id: current_cart.id})
+		@cart_product.destroy
+
+		redirect_to carts_path
+	end
 
 end

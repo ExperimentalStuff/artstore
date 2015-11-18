@@ -12,6 +12,9 @@ Rails.application.routes.draw do
     collection do
       post :checkout
       delete :abort
+      resources :products do
+        delete :remove_from_cart
+      end
     end
   end
 

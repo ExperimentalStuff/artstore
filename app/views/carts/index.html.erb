@@ -41,6 +41,7 @@
 		<hr>
 
 		<div class="checkout clearfix">
+			<%= link_to("清空購物車", abort_carts_path, method: :delete, class: "btn btn-lg btn-danger pull-left", data: {confirm: "Are you sure?"}) %>
 			<%= link_to("確認結帳", checkout_carts_path, method: :post, class: "btn btn-lg btn-danger pull-right") %>
 		</div>
 	</div>

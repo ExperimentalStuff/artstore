@@ -11,3 +11,7 @@ u.password = "12345678"
 u.password_confirmation = "12345678"
 u.is_admin = true
 u.save
+
+Product.create({title: "product1", description: "xxx", quantity: "10", price: "2"})
+Product.create({title: "product2", description: "xxx", quantity: "20", price: "3"})
+Product.create({title: "product3", description: "xxx", quantity: "30", price: "4"})

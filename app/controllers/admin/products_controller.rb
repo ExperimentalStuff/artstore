@@ -17,6 +17,7 @@ class Admin::ProductsController < ApplicationController
 
 	def create
 		@product = Product.new(product_params)
+		@photo = @product.build_photo
 
 		if @product.save
 			redirect_to admin_products_path
@@ -32,6 +33,7 @@ class Admin::ProductsController < ApplicationController
 
 	def update
 		@product = Product.find(params[:id])
+		@photo = @product.photo || @product.build_photo
 
 		if @product.update(product_params)
 			redirect_to admin_products_path

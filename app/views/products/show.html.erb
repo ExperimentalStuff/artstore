@@ -1,1 +1,13 @@
 products#show
+
+<ul>
+	<li> title: <%= @product.title %></li>
+	<li> description: <%= @product.description %></li>
+	<li> quantity: <%= @product.quantity %></li>
+	<li> price: <%= @product.price %></li>
+	<% if @product.photo.present? %>
+		<li> <%= image_tag(@product.photo.image.thumb.url, class: "thumbnail") %> </li>
+	<% else %>
+		<li> <%= image_tag "http://placehold.it/200x200&text=No Pic", class: "thumbnail" %></li>
+	<% end %>
+</ul>

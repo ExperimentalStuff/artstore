@@ -5,8 +5,9 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
+  resources :products
 
-  root 'admin/products#index'
+  root 'products#index'
 
   namespace :admin do
     resources :products

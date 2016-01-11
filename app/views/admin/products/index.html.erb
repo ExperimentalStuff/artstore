@@ -5,5 +5,3 @@ admin::product index.html.erb
 		<li> <%= link_to product.title, admin_product_path(product) %></li>
 	<% end %>
 </ul>
-
-<%= link_to "logout", destroy_user_session_path, method: :delete %>

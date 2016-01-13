@@ -23,8 +23,10 @@ class Admin::ProductsController < ApplicationController
 
 		if @product.save
 			redirect_to admin_products_path
+			flash[:notice] = "成功新增產品！"
 		else
 			render :new
+			flash[:alert] = "未新增產品！"
 		end
 	end
 
@@ -39,8 +41,10 @@ class Admin::ProductsController < ApplicationController
 
 		if @product.update(product_params)
 			redirect_to admin_products_path
+			flash[:notice] = "成功更新產品: #{@product.title} 之內容"
 		else
 			render :edit
+			flash[:alert] = "產品未更新！"
 		end
 	end
 
@@ -49,6 +53,7 @@ class Admin::ProductsController < ApplicationController
 		@product.destroy
 
 		redirect_to admin_products_path
+		flash[:alert] = "產品已刪除！"
 
 	end 
 

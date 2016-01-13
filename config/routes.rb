@@ -11,6 +11,12 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :products
+    resources :users do
+      member do
+        post :to_admin
+        post :to_normal
+      end
+    end
   end
 
   # Example of regular route:

@@ -30,7 +30,9 @@
               <li><a href="#">Another action</a></li>
               <li><a href="#">Something else here</a></li>
               <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
+              <% if current_user.admin? %>
+                <li><%= link_to "管理頁面", admin_products_path %></li>
+              <% end %>
             </ul>
           </li>
         <% end %>

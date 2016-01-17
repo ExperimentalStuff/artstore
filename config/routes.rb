@@ -5,7 +5,11 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  resources :products
+  resources :products do
+    member do
+      post :add_to_cart
+    end
+  end
 
   root 'products#index'
 

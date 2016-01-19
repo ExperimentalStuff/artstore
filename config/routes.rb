@@ -11,7 +11,13 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :carts
+  resources :carts do
+    collection do
+      post :checkout
+    end
+  end
+
+  resources :orders
 
   root 'products#index'
 

@@ -17,10 +17,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :orders do
-    member do
-      get :pay_with_credit_card
-    end
+  scope controller: :orders do
+    get 'orders/:id' => 'orders#show', constraints: proc { |req| req.params[:id].length ==36}
+    get 'orders/:id/pay_with_credit_card' => 'orders#pay_with_credit_card'
+    post 'orders' => 'orders#create'
+    delete 'orders/:id' => 'orders#destroy'
   end
 
   root 'products#index'
